@@ -1,0 +1,14 @@
+# .NET
+backend/**/bin/
+backend/**/obj/
+backend/**/*.user
+backend/**/appsettings.Development.json
+
+# Angular
+frontend/node_modules/
+frontend/dist/
+
+# General
+.DS_Store
+*.log
+.env

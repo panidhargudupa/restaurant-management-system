@@ -1,0 +1,115 @@
+<div class="container py-4" style="min-height: 100vh; background: #f8f9fa;">
+
+  <!-- Header -->
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <div>
+      <h2 class="fw-bold mb-0" style="color: #e74c3c;">⚙️ Admin Panel</h2>
+      <small class="text-muted">Manage menu items</small>
+    </div>
+    <div class="d-flex gap-2">
+      <a routerLink="/menu" class="btn btn-outline-danger btn-sm">← Menu</a>
+      <button class="btn btn-danger btn-sm" (click)="openAdd()">+ Add Item</button>
+    </div>
+  </div>
+
+  <!-- Add/Edit Form -->
+  <div *ngIf="showForm" class="card border-0 shadow-sm mb-4" style="border-radius: 16px;">
+    <div class="card-body p-4">
+      <h5 class="fw-bold mb-4">{{isEditing ? '✏️ Edit Item' : '➕ Add New Item'}}</h5>
+      <div class="row g-3">
+        <div class="col-md-6">
+          <label class="form-label fw-semibold">Item Name</label>
+          <input type="text" class="form-control" [(ngModel)]="currentItem.name"
+            placeholder="e.g. Butter Chicken" style="border-radius: 10px;">
+        </div>
+        <div class="col-md-6">
+          <label class="form-label fw-semibold">Category</label>
+          <select class="form-select" [(ngModel)]="currentItem.category" style="border-radius: 10px;">
+            <option value="">Select category</option>
+            <option>Starter</option>
+            <option>Main Course</option>
+            <option>Breakfast</option>
+            <option>Dessert</option>
+            <option>Drinks</option>
+          </select>
+        </div>
+        <div class="col-md-6">
+          <label class="form-label fw-semibold">Price (₹)</label>
+          <input type="number" class="form-control" [(ngModel)]="currentItem.price"
+            placeholder="e.g. 250" style="border-radius: 10px;">
+        </div>
+        <div class="col-md-6">
+          <label class="form-label fw-semibold">Image URL</label>
+          <input type="text" class="form-control" [(ngModel)]="currentItem.imageUrl"
+            placeholder="https://..." style="border-radius: 10px;">
+        </div>
+        <div class="col-12">
+          <label class="form-label fw-semibold">Description</label>
+          <input type="text" class="form-control" [(ngModel)]="currentItem.description"
+            placeholder="Brief description..." style="border-radius: 10px;">
+        </div>
+        <div class="col-12">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" [(ngModel)]="currentItem.isAvailable" id="available">
+            <label class="form-check-label fw-semibold" for="available">Available</label>
+          </div>
+        </div>
+      </div>
+      <div class="d-flex gap-2 mt-4">
+        <button class="btn btn-danger px-4" (click)="save()" style="border-radius: 10px;">
+          {{isEditing ? 'Update Item' : 'Add Item'}}
+        </button>
+        <button class="btn btn-outline-secondary px-4" (click)="cancel()" style="border-radius: 10px;">
+          Cancel
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Menu Items Table -->
+  <div class="card border-0 shadow-sm" style="border-radius: 16px;">
+    <div class="card-body p-0">
+      <div class="table-responsive">
+        <table class="table table-hover mb-0">
+          <thead style="background: #fff5f5;">
+            <tr>
+              <th class="px-4 py-3">Item</th>
+              <th>Category</th>
+              <th>Price</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of menuItems">
+              <td class="px-4 py-3">
+                <div class="d-flex align-items-center gap-3">
+                  <img [src]="item.imageUrl" style="width: 45px; height: 45px; object-fit: cover; border-radius: 8px;">
+                  <div>
+                    <div class="fw-bold">{{item.name}}</div>
+                    <small class="text-muted">{{item.description}}</small>
+                  </div>
+                </div>
+              </td>
+              <td class="align-middle">
+                <span class="badge" style="background: #fff3cd; color: #856404;">{{item.category}}</span>
+              </td>
+              <td class="align-middle fw-bold" style="color: #e74c3c;">₹{{item.price}}</td>
+              <td class="align-middle">
+                <span class="badge" [style.background]="item.isAvailable ? '#d4edda' : '#f8d7da'"
+                  [style.color]="item.isAvailable ? '#155724' : '#721c24'">
+                  {{item.isAvailable ? 'Available' : 'Unavailable'}}
+                </span>
+              </td>
+              <td class="align-middle">
+                <button class="btn btn-sm btn-outline-primary me-2" (click)="openEdit(item)">✏️ Edit</button>
+                <button class="btn btn-sm btn-outline-danger" (click)="delete(item.id!)">🗑️ Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</div>
