@@ -62,3 +62,12 @@ Go to `http://localhost:4200`
 
 ## Author
 Panidhar Gudupa — MCA Graduate, Full Stack Developer
+
+
+'''
+cd C:\Users\PANIDHAR\projects\restaurant-management-system\backend\RestaurantAPI
+dotnet run
+
+cd C:\Users\PANIDHAR\projects\restaurant-management-system\frontend
+ng serve
+'''
