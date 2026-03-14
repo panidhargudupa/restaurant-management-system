@@ -56,18 +56,10 @@ Go to `http://localhost:4200`
 
 ## Screenshots
 > Menu Page → Cart → Payment → Order Confirmed ✅
->
-> ##Intership
-> Loginware Softtech Pvt Ltd.
+
+##Intership Company
+Loginware Softtech Pvt Ltd.
 
 ## Author
 Panidhar Gudupa — MCA Graduate, Full Stack Developer
 
-
-'''
-cd C:\Users\PANIDHAR\projects\restaurant-management-system\backend\RestaurantAPI
-dotnet run
-
-cd C:\Users\PANIDHAR\projects\restaurant-management-system\frontend
-ng serve
-'''
