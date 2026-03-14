@@ -54,6 +54,29 @@ Frontend runs at: `http://localhost:4200`
 ### 4. Open in browser
 Go to `http://localhost:4200`
 
+---
+
+## 🔁 After Laptop Restart (Day to Day)
+
+No need to run migrations again — that's only done **once**.
+Just open **2 terminals** and run:
+
+**Terminal 1 — Backend:**
+```bash
+cd C:\Users\PANIDHAR\projects\restaurant-management-system\backend\RestaurantAPI
+dotnet run
+```
+
+**Terminal 2 — Frontend:**
+```bash
+cd C:\Users\PANIDHAR\projects\restaurant-management-system\frontend
+ng serve
+```
+
+Then open browser → `http://localhost:4200` ✅
+
+---
+
 ## Screenshots
 > Menu Page → Cart → Payment → Order Confirmed ✅
 
