@@ -56,6 +56,9 @@ Go to `http://localhost:4200`
 
 ## Screenshots
 > Menu Page → Cart → Payment → Order Confirmed ✅
+>
+> ##Intership
+> Loginware Softtech Pvt Ltd.
 
 ## Author
 Panidhar Gudupa — MCA Graduate, Full Stack Developer
